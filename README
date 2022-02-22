@@ -1,0 +1,23 @@
+This is the thesis class file for Dartmouth College.  Its pretty straightforward and the dcthesis.tex file is heavily commented.  Its reccomended that you use this file as a blank slate for your thesis.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%    IMPORTANT     %%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%  Because dvips doesn't know/care about the page size of the dvi file
+%  its working on, and because its so important that the margins of
+%  your thesis are correct you have to make sure that you are using
+%  the command dvi -t letter *thesisnamehere*
+%
+%  If you are using a terminal this is straightforward, but if you are
+%  using a tex editing program it make take a little bit of searching
+%  before you figure out how to make this work. 
+%  
+%  Alternatively, might consider using pdflatex to compile your thesis. 
+%  Because pdflatex compiles stright to a pdf there aren't any issues
+%  regarding page size. 
+
+
+One important option for the dcthesis class is the *draft* option.  Using this option will produce smaller margins and will make page construction appropriate for twosided printing.  You can also use most of the usual options like 11pt, or singlespacing.  However, most of these won't work unless you also use the draft option, since the default is for the class to treat this as a final copy, which forces double spacing and 12pt font, as well as a single sided layout.  Also, the copyright option will add a copyright in the appropriate place. 
+
+Most everything else is pretty straightforward.  I've included some index stuff in the template.  Feel free to remove it, although if you want to know more about making your own indexs, Ive included some documentation.  

@@ -1,0 +1,67 @@
+The finishing touch of your book or report may be an index. Creating a detailed index is very time consuming for the author but essential for the reader. With MakeIndex creating an index in LaTeX documents is relatively easy, technically speaking.
+
+Creating an index is much like creating a bibliography. First you add the package makeidx, e.g.,
+
+ \documentclass{book}
+ \usepackage{makeidx}
+
+Then you put a \makeindex command in the preamble (between the \documentclass and the \begin{document} command). At the location where you want your index to appear you give the command \printindex (usually right before the \end{document} command). When this is done you have to specify the entries you want in the index and MakeIndex will find the correct page numbers and produces an index table. If you want, e.g., the word gnat to be included in the index you put the command \index{gnat} right after the word gnat in your document, i.e., gnat\index{gnat}. There are several other options to include words in an index. For a detailed discussion about all possibilities we refer to Lamport (1987).
+
+Suppose that the document you are writing is called sample.tex. When you run LaTeX for the first time, the style option makeidx together with the command \makeindex will produce a file called sample.idx. In this file you can find all the index entries. Then you run MakeIndex2 , e.g.,
+
+    * ?:\emtex\utils\mkidx32 sample.idx
+
+The result is a file called sample.ind that contains the index entries with the corresponding page numbers. The second time you run LaTeX the \printindex command will include the file sample.ind so your index gets typeset.
+
+The program MakeIndex can be found on the directory ?:\emtex\utils. It reads the .idx file from the current directory.
+
+If you want to create multiple indices (e.g., a normal index, a list of notations used, and a name index) you could use the package index.sty. The example below explains how multiple indices are created and printed at the end of your document.
+
+ %% Create multiple indexes.
+ %% This is a sample file for INDEX.STY.
+ %% Here is how to compile a text with multiple indexes:
+ %% - compile the TeX file
+ %% - goto MakeIndex menu (Utilities)
+ %% - change index file extension to .*dx
+ %% - run MakeIndex
+ %% - return to main menu
+ %% - compile the TeX file again
+ \documentclass{book}
+ \usepackage{index}
+ %           ^^^^^ required package for multiple indices!
+ 
+ % start a `standard' index:
+ \makeindex
+ % (this is equivalent to `\newindex{default}{idx}{ind}{Index}'
+ % note:                                      ^    ^
+ 
+ % start an index called `Name Index':
+ \newindex{aut}{adx}{and}{Name Index}
+ % note:        ^    ^
+ 
+ % start an index called `List of Notation':
+ \newindex{not}{ndx}{nnd}{List of Notation}
+ % note:        ^    ^
+ 
+ \begin{document}
+ 
+ Here is some text.\index{subject}
+ % `subject' will appear in the standard `Index'
+ 
+ Here is some more text.\index[not]{notation}
+ % `notation' will appear in the `List of Notation'
+ 
+ Who wrote this?\index[aut]{Someone else}
+ Here is yet more text.\index[aut]{Knut}
+ % `Knut' and `Someone else' will appear in the `Name Index'
+ 
+ \printindex[not]
+ % prints the `List of Notation'
+ 
+ \printindex[aut]
+ % prints the `Name Index'
+ 
+ \printindex
+ % prints the standard `Index'
+ 
+ \end{document}
