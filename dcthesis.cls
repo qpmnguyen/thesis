@@ -94,12 +94,13 @@
 %Utilities stuff for maketitle
 \def\@school{Dartmouth College}
 \def\@location{Hanover, New Hampshire}
-\newcommand*{\committee}[5][]{%
+\newcommand*{\committee}[6][]{%
   \ifx#1\@empty\else\def\@dean{#1}\fi%
-  \def\@advisor{#2}%
-  \def\@examinera{#3}%
-  \def\@examinerb{#4}%
-  \def\@examinerc{#5}%
+  \def\@advisora{#2}%
+  \def\@advisorb{#3}
+  \def\@examinera{#4}%
+  \def\@examinerb{#5}%
+  \def\@examinerc{#6}%
 }
 \newcommand*{\degree}[1]{\def\@degree{#1}}
 \newcommand*{\field}[1]{\def\@field{#1}}
@@ -148,7 +149,8 @@
         \vfill
         \begin{tabular}[t]{cc}
           & Examining Committee: \\
-          \phantom{\underline{\hspace{3in}}} & \@signatureline{\@advisor, Chair} \\
+          \phantom{\underline{\hspace{3in}}} & \@signatureline{\@advisora, Co-Chair} \\
+          & \@signatureline{\@advisorb, Co-Chair} \\
           & \@signatureline{\@examinera} \\
           & \@signatureline{\@examinerb} \\
           & \@signatureline{\@examinerc} \\
@@ -246,7 +248,7 @@
   \if@noheadings\else
   \renewcommand\headrulewidth{.1pt}
   \fancyhead[L]{\sffamily\sc \rightmark}
-  \fancyhead[R]{\sffamily\sc \leftmark}\fi
+  %\fancyhead[R]{\sffamily\sc \leftmark}\fi
   \if@twoside
   \fancyfoot[LE,RO]{\thepage}
   \fancyfoot[LO,RE]{}\else
