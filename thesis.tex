@@ -29,15 +29,22 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Some Defaults
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\committee[F. Jon Kull, Ph.D.]{}{}{}{}
+\committee[F. Jon Kull, Ph.D.]{}{}{}{}{}
 \school{Dartmouth College}{Hanover, New Hampshire}
 \degree{Doctor of Philosophy}
-\field{Mathematics}
+\field{Quantitative Biomedical Sciences}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Additional Packages (add as desired)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage{amsmath,amssymb,amsthm}
+%\usepackage{amsmath,amssymb,amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{ragged2e}
+\usepackage{textcomp}
+\usepackage{url}
+\usepackage{nameref}
 
 %\usepackage{mkindex} %Uncomment if you would like to have an index. Compiling with an index takes more work than compiling without one. You will have to look up how to use the index package.
 
@@ -82,18 +89,20 @@
 % Macros
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Add your math macros here
+\newcommand{\overbar}[1]{\mkern 2mu\overline{\mkern-2mu#1\mkern-20mu}\mkern 20mu}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Title Page Information
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %  Your personal info goes here!
-\title{Pretty Okay: A summary of technological methods for determining the veracity of certain obnoxious phrases}
-\author{The Myth}
-\date{May 2018}
-\field{Mathematics}
+\title{Deciphering taxa-function relationships in population-level studies of human gut microbiomes}
+\author{Quang P. M. Nguyen}
+\date{May 2022}
+\field{Quantitative Biomedical Sciences}
 \degree{Doctor of Philosophy}
 %As an optional arguement to \committee you can specify the dean of graduate studies.
-\committee{LGF}{The Mustache}{The Big Cheese}{Totally Real Subfield}
+\committee[]{H. Robert Frost, Ph.D.}{Anne G. Hoen, Ph.D.}{Margaret R. Karagas, Ph.D.}{Brock C. Christensen, Ph.D.}{Levi Waldron, Ph.D.}
 
 \begin{document}
 
@@ -125,10 +134,10 @@ Preface and Acknowledgments go here!
 \tableofcontents
 
 %Add a list of tables
-%\listoftables
+\listoftables
 
 %Add a list of figures
-%\listoffigures
+\listoffigures
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Main Portion of Thesis
@@ -138,11 +147,16 @@ Preface and Acknowledgments go here!
 %%%%%%%%%%%%%%%%%%%%%%%%%
 %%  YOUR THESIS HERE!  %%
 %%%%%%%%%%%%%%%%%%%%%%%%%
-
 \include{chapter1}
-
+\include{chapter2}
+\include{chapter3}
+\include{chapter4}
+\include{chapter5}
+%\include{example}
 %\appendix
-%\include{appendixA}
+\include{appendixA}
+\include{appendixB}
+\include{appendixC}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Backend of thesis (references and the like)
@@ -150,10 +164,10 @@ Preface and Acknowledgments go here!
 \backmatter
 
 %Add your bibliography filename and uncomment these lines
-%\bibliographystyle{amsplain}
-%\addcontentsline{toc}{chapter}{References}
-%\bibliography{}
-%\markboth{{\sffamily\sc Bibliography}}{}
+\bibliographystyle{amsplain}
+\addcontentsline{toc}{chapter}{References}
+\bibliography{references}
+\markboth{{\sffamily\sc Bibliography}}{}
 
 
 %Uncomment if you want an index
