@@ -30,7 +30,7 @@ Even though trait-based approaches have been utilized in various studies \cite{w
 
 \section{Material and methods} \label{ch4_methods}
 
-All analyses were performed in the R programming language (version 4.1.2) \cite{rcoreteam2021language} and the Python programming language (version 3.10.4). All graphics were generated using \texttt{ggplot2}, \texttt{ggsci}, \texttt{patchwork}. Tabular data manipulation was performed using \texttt{pandas} for python, and \texttt{tidyverse} suite of packages for R. Additional packages utilized include: \texttt{BiocSet}, \texttt{taxizedb}, \texttt{phyloseq}, \texttt{TreeSummarizedExperiment}. For enrichment analyses, we leveraged the CBEA \cite{nguyen2021cbea} method (version 1.0.1) developed previously by our lab. All analyses were performed using the \texttt{snakemake} workflow \cite{molder2021sustainable}. All reproducible code and intermediate analysis products can be found on GitHub (\url{https://www.github.com/qpmnguyen/microbe_set_trait}).  
+All analyses were performed in the R programming language (version 4.1.2) \cite{rcoreteam2021language} and the Python programming language (version 3.10.4). All graphics were generated using \texttt{ggplot2} \cite{wickham2016ggplot2}, \texttt{ggsci} \cite{xiao2018ggsci}, \texttt{patchwork} \cite{pedersen2020patchwork}. Tabular data manipulation was performed using \texttt{pandas} for python, and \texttt{tidyverse} \cite{wickham2011splitapplycombine} suite of packages for R. Additional packages utilized include: \texttt{BiocSet} \cite{morrell2021biocset}, \texttt{taxizedb} \cite{chamberlain2021taxizedb}, \texttt{phyloseq} \cite{mcmurdie2013phyloseq}, \texttt{TreeSummarizedExperiment} \cite{huang2021treesummarizedexperiment}. For enrichment analyses, we leveraged the CBEA \cite{nguyen2021cbea} method (version 1.0.1) developed previously by our lab. All analyses were performed using the \texttt{snakemake} workflow \cite{molder2021sustainable}. All reproducible code and intermediate analysis products can be found on GitHub (\url{https://www.github.com/qpmnguyen/microbe_set_trait}).  
 
 \subsection{Generating taxonomic sets from trait databases}  
 
@@ -157,6 +157,12 @@ Set-based enrichment analysis is a useful approach for analyzing microbiome data
 % You can use the \nameref{label} command to cite supporting items in the text.
 
 %\clearpage
+
+\section{Availability of data and materials}
+All data sets are available publically via \texttt{Qiita}, \texttt{HMP16SData}, and \texttt{curatedMetagenomicData} with raw sequence data available on NCBI in their respective project repositories. All analysis scripts and generated figures are available on GitHub (\url{https://www.github.com/qpmnguyen/microbe_set_trait}). 
+
+\section{Acknowledgements}
+The authors thank Becky Lebeaux for insightful comments that greatly improved the paper. We would also like to thank maintainers of the packages \texttt{curatedMetagenomicData}, \texttt{HMP16SData}, \texttt{phyloseq}, \texttt{QIIME2}, \texttt{Qiita}, \texttt{TreeSummarizedExperiment} for all their efforts in maintaining open source repositories for data analysis and data sharing.  
 
 
 
