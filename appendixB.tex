@@ -1,25 +1,27 @@
 \chapter{Supporting material for ``Associations between the gut microbiome and metabolime in early life"}
 
 \section{List of abbreviations}
-NHBCS: New Hampshire Birth Cohort Study
-NMR: Nuclear Magnetic Resonance
-PCoA: Principal Coordinates Analysis
-gUniFrac: Generalized Unique Fraction 
-ASV: Amplicon Sequence Variant
-FDR: False Discovery Rate
-sCCA/CCA: Sparse Canonical Correlation Analysis
-SCFA: Short Chain Fatty Acids
-RF: Random Forest
-EN: Elastic Net
-SVM-RBF: Support Vector Machines with Radial Basis kernel Function
-SPLS: Sparse Partial Least Squares
-CLR:  Centered Log Ratio transformation
+
+\section{Supplemental Notes} 
+\paragraph{Supplementary Note 1}
+\label{appB_note1}
+{\bf Microbe-metabolite participation in significant pairwise Spearman correlation}. Univariate pairwise Spearman correlations were performed to identify significant microbe-metabolite pairs. Significance was determined by the Spearman false discovery rate (FDR) threshold of 0.05 following a Benjamini-Hochberg multiple hypothesis testing procedure.  At both time points a majority of genera and metabolites were significantly correlated, where at 6 weeks, 28 genera (65\% of total genera) and 36 metabolites (100\% of metabolites) were part of 516 significant correlations (16.6\% of total pairwise comparisons) while at 12 months, 59 genera (81.9\% of total genera) and 29 metabolites (80\% of metabolites) were involved in 214 significant correlations (8.01\% of total pairwise comparisons). This result also supported the observation that at 6 weeks the microbiome was marginally more associated with the metabolome compared to 12 months. Similar to sCCA results, untargeted data set showed a similar signal at both time points. Specifically, at 6 weeks, 37 genera (86\% of genera) and 198 metabolite bins (95.1\% of bins) were part of 1480 significant associations (16.5\% of pairwise comparisons). Similarly, at 12 months, 67 genera (93\% of genera) and 207 metabolite bins (99.5\% of bins) were part of 1392 significant associations (9.2\% of total pairwise comparisons). 
+
+\paragraph{Supplementary Note 2}
+\label{appB_note2}
+{\bf Sparse canonical correlation analysis selects microbes and metabolites important to the inter-omic correlation.} Only a small subset of metabolites and microbes were selected (27\% of taxa for both time points; 16.9\% of metabolites at 6 weeks and 19.4\% of metabolites at 12 months). At both time points, selected taxa belong to the Firmicutes, Actinobacteria and Proteobacteria phyla with Firmicutes being the most represented (58.3\% of selected taxa at 6 weeks; 70\% of selected taxa at 12 months). Actinobacteria was the second most selected phylum (25\% of selected taxa) at 6 weeks while at 12 months it was Proteobacteria (30\% of selected taxa). For metabolites, amino acids were the most represented metabolite class (Table~\ref{tab:b1}) (60\% of selected metabolites at 6 weeks, 85\% of selected metabolites at 12 months). 6-week samples demonstrated a larger diversity of metabolite classes, with additional representatives from carboxylic acids group, nucleotides and short chain fatty acids (SCFA) while at 12 months, the only non-amino-acid metabolite is uracil (of the nucleotide class). Across both time points, 3 genera (Flavonifractor, Haemophilus and Acinetobacter genera) and 5 metabolites (lysine, isoleucine, leucine, uracil, phenylalanine) were consistently selected. Surprisingly, in the untargeted analysis, nearly half of taxa and metabolites were selected at 6 weeks while the number remained more similar to the targeted analysis at 12 months (6 weeks: 46\% of taxa and 42\% of metabolite bins; 12 months: 13.8\% of taxa and  17.3\% of metabolite bins). However, the taxonomic distribution of those selected taxa remained similar, with Firmicutes being the most dominating phyla (60\% of selected taxa at both time points). Additionally, for both time points, the sign of the sCCA loadings for selected variables were also concordant with patterns of negative and positive correlation via univariate Spearman correlations (Figure 3, right panels). Notably, all selected metabolites contain negative loadings for both time points, with the majority of selected pairwise correlation to be negative (6 weeks: 76.6\% of selected pairwise comparisons, 12 months: 60.7\% of selected pairwise comparisons). This pattern is replicated in the untargeted data set as well (6 weeks: 61.3\% of selected pairwise comparisons, 12 months: 70\% of selected pairwise comparisons). 
+
+\paragraph{Supplementary Note 3}
+\label{appB_note3}
+\textbf{Prediction results.} Under $R^2$, at 6 weeks only 8 (22.2\%) metabolites (Butyrate, Glycerol, Isobutyrate, Isoleucine, Leucine, Methionine, Phenylalanine and Tyrosine) were predictable, with a mean of 4.85\% and a maximum of 11.8\% (Butyrate using EN). At 12 months, only 14 (38.9\%) of metabolites (Butyrate, Formate, Inosine, Isobutyerate, Isoleucine, Lactate, Leucine, Methionine, Phenylalanine, Propionate, Propylene glycol, Tyrosine, Uracil, Valine) were predictable, with a mean of 4.81\% and a maximum of 8.7\% (Propylene Glycol using RF). When looking at the average R2 across all metabolites, performance was not good (-5.6\% at 6 weeks; -3.07\% at 12 months). This negative $R_2$ value implies that the predicted model performs worse than the naïve, intercept only model. Conversely, correlative performance was much better. At 6 weeks 26 metabolites (83\%) were predictable, with a mean correlation of 0.344 and a maximum of 0.669 (Butyrate using EN). Similarly, at 12 months all 36 targeted metabolites were predictable, with a mean of 0.265 and a maximum of 0.549 (Succinate using EN). Using the SCC cutoff of 0.3 as criteria for well predicted metabolites, many metabolites at 6 weeks were still retained (25 metabolites - 69.4\%). Conversely, at 12 months, only 13 metabolites remained to be well predicted (38.9\%). On average, performance based on SCC was good with a mean SCC value of 0.339 at 6 weeks and 0.249 at 12 months. In the untargeted analysis looking at the entire metabolome, performance was much better for both metrics. Under R2, 116 (56.7\%) of metabolite bins were predictable at a maximum of 42.7\% (Bin 33 using SPLS) and a mean of 16.7\% at 6 weeks while at 12 months, 94 (45.1\%) of metabolite bins were ell predicted at a maximum of 22.7\% (Bin 16 using SVM) and a mean of 8.19\%. The overall average across all metabolites is 3.91\% (6 weeks) and -0.59\% (12 months). This trend was similarly observed using SCC, as all all 208 metabolites bins were predictable for both time points (using SCC = 0 as the threshold). Specifically, of the predictable metabolites at 6 weeks the maximum value was 0.687 (Bin 32 using EN) with a mean of 0.352 while at 12 months, the maximum value was 0.53 (Bin 16 using SVM) and a mean of 0.253. Using the SCC cutoff of 0.3 as above, at 6 weeks 120 metabolite bins (57\% of bins) were well predicted while at 12 months only 60 (28.8\% of bins) were well predicted.
+
 
 \section{Availability of data and materials}
 
 The 16S rRNA gene sequencing datasets used in this study are stored in the National Center for Biotechnology Information (NCBI) Sequence Read Archive: \url{http://www.ncbi.nlm.nih.gov/sra} under accession number PRJNA296814. The raw and processed metabolomics data is available at the NIH Common Fund's National Metabolomics Data Repository (NMDR) website, the Metabolomics Workbench, \url{https://www.metabolomicsworkbench.org} where it has been assigned Project ID PR001146. The data can be accessed directly via its project DOI: \url{https://doi.org/10.21228/M8K69N}. All intermediary analysis objects and scripts are available on GitHub. 
 
 \section{Supplemental tables}
+
 Table S1. Metabolites selected for targeted analysis and their potential biological functions.
 
 Table S2: Primers used for bacterial 16S rRNA gene sequencing 
