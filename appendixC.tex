@@ -1,5 +1,7 @@
 \chapter{Supporting material for ``CBEA: Competitive balances for taxonomic enrichment analysis"}
-\section{Implementation of empirical distribution fitting}
+
+
+\section{Supplementary Note 1} \label{appC_note1}
 
 In order to perform inference with CBEA, we estimated the null distribution empirically. This can be done either non-parametrically by constructing a null distribution through computing scores on multiple permutations of the data, or parametrically via estimating parameters of a distribution using the same permuted scores. This means that our null distribution for a given set is equivalent to scores computed for sets of similar sizes but containing randomly chosen taxa. We chose two distributional forms for the null: the normal distribution and a two-component mixture normal distribution. For the normal distribution, we estimated parameters using the maximum likelihood using the \emph{fitdistrplus} package \cite{delignette-muller2015fitdistrplus}. For the mixture normal distribution, we utilized the expectation-maximization procedure from the package \emph{mixtools} \cite{benaglia2009mixtools}. 
 
@@ -20,7 +22,7 @@ $\lambda'_1$, $\lambda'_2$, $\mu'_1$, $\mu'_2$, and $M'$ are component-wise mixi
 There are also different variations to this approach. We can choose to vary both $\sigma_1$ and $\sigma_2$ or to keep either $\sigma_1$ or $\sigma_2$ constant and varying the remaining component. We can assume that null distribution is a two-component mixture distribution where there is one major component with smaller mean (representing the bulk of the distribution centered at the permuted mean) and one minor component with higher mean (representing the inflated right tail). Under this assumption, we can modify the optimization problem to only estimate the variance parameter of the smaller component (i.e. without loss of generalizability keeping $\sigma_1$ constant where $\lambda'_1 > \lambda'_2$). This allows for the optimization procedure to more properly capture the right tail distribution rather than increasing weight on the left tail of the distribution which impacts the computation of p-values for a one-sided test. Empirical experiments (data not shown) done on simulated data and random set analyses suggest that this adjustment improves performance of the adjusted CBEA under mixture-normal assumption. In the R implementation of CBEA, users can control this behaviour by specifying the \emph{fix\_comp} parameter as part of the \emph{control} argument.  
 
 
-\section{Numerical simulations}
+\section{Supplementary Note 2} \label{appC_note2}
 \subsection{Design}
 Even though real data evaluations provide good estimates for performance of CBEA under typical analysis tasks, it does not allow for understanding of the behavior of the model under different effect sizes, correlations, and sparsity. As such, we also perform parametric numerical simulations by generating microbiome count data under the assumption that it follows a zero-inflated negative binomial distribution, which is a good fit for real microbiome relative abundance data \cite{calgaro2020assessment}. Suppose $X_{ij}$ are observed counts for a sample $i$ and taxon $j$, then we have the following probability model
 \begin{equation}
@@ -115,7 +117,7 @@ Panel B represent results for a classification task with a binary outcome with A
 \end{figure}
 
 \clearpage
-\section{Runtime performance}
+\section{Supplementary Note 3} \label{appC_note3}
 
 We implemented CBEA in the package \emph{CBEA} on GitHub (\url{https://www.github.com/qpmnguyen/CBEA}). We evaluated computational time using the \emph{bench} package in R. We applied CBEA to a standard data set generated using our simulation model consisting of 40 sets (of size 20 each) and 500 samples. Benchmark was performed on a single core using a node on the computing cluster (Specifications: Intel Xeon E5-2690 (2.6GHz) with 4GB of RAM). 
 
@@ -130,7 +132,7 @@ In general, using the normal distribution is the fastest approach regardless of 
 
 In order to reduce runtime, users can attempt the following: Since CBEA fits parametric distributions over permuted values of all samples within a data set (i.e. for $N = 100$ and $10$ permutations, the fitting procedure will attempt to estimate parameters from a vector of size $1000$ for each set), if the sample size is high users can reduce the number of permutations. Additionally, CBEA also implements a procedure to parallelize computation across sets, which might be applicable to situations where there are a lot of sets to evaluate. Finally, a lot of CBEA approaches work well without parametric fit, so users can use the non-parametric approaches like the permutation test or using raw CBEA scores. 
 
-\section{Distribution of type I error in random set evaluations}
+\section{Supplementary Note 4} \label{appC_note4}
 
 \begin{figure}[!h]
     \centering
